@@ -1,0 +1,1 @@
+{"errors": {"end_date": ["You provided 2017-06-31 for end_date. This is not a recognized date format. Please provide yyyy-mm-dd"]}, "quandl_error": {"code": "QESx04", "message": "You have submitted incorrect query parameters. Please check your API call syntax and try again."}}
