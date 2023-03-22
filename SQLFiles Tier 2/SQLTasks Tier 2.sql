@@ -91,10 +91,34 @@ different costs to members (the listed costs are per half-hour 'slot'), and
 the guest user's ID is always 0. Include in your output the name of the
 facility, the name of the member formatted as a single column, and the cost.
 Order by descending cost, and do not use any subqueries. */
+ SELECT Facilities.name,
+CASE 
+WHEN Bookings.memid = 0 THEN 'Guest' ELSE CONCAT(Members.firstname, ' ', Members.surname) END AS member_name,
+    CASE WHEN Bookings.memid = 0 THEN Bookings.slots * Facilities.guestcost ELSE Bookings.slots * Facilities.membercost END AS cost
+FROM Bookings
+    INNER JOIN Facilities on Bookings.facid = Facilities.facid
+    LEFT JOIN Members on Bookings.memid = Members.memid
 
-
+WHERE 
+    DATE(Bookings.starttime) = '2012-09-14' AND
+    (Bookings.memid = 0 AND Bookings.slots * Facilities.guestcost > 30 or Bookings.memid != 0 AND Bookings.slots * Facilities.membercost > 30)
+ORDER BY 
+    cost DESC;   
 /* Q9: This time, produce the same result as in Q8, but using a subquery. */
-
+SELECT Facilities.name,
+CONCAT(Members.firstname, ' ', Members.surname) AS member_name,
+CASE
+	WHEN Bookings.memid = 0 THEN Bookings.slots * Facilities.guestcost
+    ELSE Bookings.slots * Facilities.membercost
+END AS cost
+FROM
+	(SELECT * FROM Bookings WHERE DATE(starttime) = '2012-09-14') AS Bookings
+    INNER JOIN Facilities ON Bookings.facid = Facilities.facid
+    LEFT JOIN Members ON Bookings.memid = Members.memid
+WHERE 
+	(Bookings.memid = 0 AND Bookings.slots * Facilities.guestcost > 30)
+    OR (Bookings.memid != 0 AND Bookings.slots * Facilities.membercost > 30)
+ORDER BY cost DESC;
 
 /* PART 2: SQLite
 
@@ -105,12 +129,54 @@ QUESTIONS:
 /* Q10: Produce a list of facilities with a total revenue less than 1000.
 The output of facility name and total revenue, sorted by revenue. Remember
 that there's a different cost for guests and members! */
-
+SELECT 
+    Facilities.name, 
+    SUM(
+        CASE 
+            WHEN Bookings.memid = 0 THEN Bookings.slots * Facilities.guestcost 
+            ELSE Bookings.slots * Facilities.membercost 
+        END
+    ) AS total_revenue 
+FROM 
+    Bookings 
+    INNER JOIN Facilities ON Bookings.facid = Facilities.facid 
+GROUP BY Facilities.name 
+HAVING total_revenue < 1000 
+ORDER BY total_revenue;
 /* Q11: Produce a report of members and who recommended them in alphabetic surname,firstname order */
-
+SELECT 
+    m1.surname || ', ' || m1.firstname AS member_name, 
+    m2.surname || ', ' || m2.firstname AS recommended_by 
+FROM 
+    Members AS m1 
+    LEFT JOIN Members AS m2 ON m1.recommendedby = m2.memid 
+ORDER BY m1.surname, m1.firstname;
 
 /* Q12: Find the facilities with their usage by member, but not guests */
-
+SELECT 
+    Facilities.name, 
+    SUM(Bookings.slots) AS member_usage 
+FROM 
+    Bookings 
+    INNER JOIN Facilities ON Bookings.facid = Facilities.facid 
+WHERE 
+    Bookings.memid != 0 
+GROUP BY 
+    Facilities.name 
+ORDER BY 
+    member_usage DESC;
 
 /* Q13: Find the facilities usage by month, but not guests */
-
+SELECT 
+    Facilities.name, 
+    strftime('%m', Bookings.starttime) AS month, 
+    SUM(Bookings.slots) AS member_usage 
+FROM 
+    Bookings 
+    INNER JOIN Facilities ON Bookings.facid = Facilities.facid 
+WHERE 
+    Bookings.memid != 0 
+GROUP BY 
+    Facilities.name, month 
+ORDER BY 
+    month, member_usage DESC;
