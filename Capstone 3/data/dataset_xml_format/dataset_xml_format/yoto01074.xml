@@ -1,0 +1,38 @@
+<annotation>
+	<folder>video.cikti.3</folder>
+	<filename>yoto01074.png</filename>
+	<path>C:\Users\John Doe.DESKTOP-QVG68SG\Desktop\video.cikti.3\yoto01074.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>drone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>250</xmin>
+			<ymin>74</ymin>
+			<xmax>926</xmax>
+			<ymax>608</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>drone</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>868</xmin>
+			<ymin>195</ymin>
+			<xmax>1280</xmax>
+			<ymax>398</ymax>
+		</bndbox>
+	</object>
+</annotation>

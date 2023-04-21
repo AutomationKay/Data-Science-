@@ -1,0 +1,26 @@
+<annotation>
+	<folder>custom drone _ Google_da Ara</folder>
+	<filename>pic_1167.JPG</filename>
+	<path>C:\Users\John Doe.DESKTOP-QVG68SG\Desktop\ssg\custom drone _ Google_da Ara\pic_1167.JPG</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>878</width>
+		<height>1087</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>drone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>15</xmin>
+			<ymin>43</ymin>
+			<xmax>865</xmax>
+			<ymax>574</ymax>
+		</bndbox>
+	</object>
+</annotation>
