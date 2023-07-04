@@ -2,6 +2,7 @@
 
 ## **Introduction**
 Data obtained from [Kaggle](https://www.kaggle.com/datasets/tarkkaanko/amazon)
+
 This repository contains a comprehensive analysis of customer review data for a product listed on Amazon. The main objective is to perform sentiment analysis on customer reviews to gain insights into their sentiments towards the product. The project utilizes natural language processing (NLP) techniques and machine learning models to accurately predict the sentiment of reviews.
 
 ## **Dataset and Preprocessing**
