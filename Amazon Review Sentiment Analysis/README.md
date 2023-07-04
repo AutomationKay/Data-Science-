@@ -26,6 +26,13 @@ To build predictive models, the text reviews are converted into numerical repres
 ## **Model Selection and Training**
 Multiple machine learning models are explored in this analysis, including Naive Bayes, Logistic Regression, and Support Vector Machines (SVM). Each model is trained on the training set and evaluated using the validation set. Performance metrics like accuracy, precision, recall, and F1 score are used to assess the models' effectiveness.
 
+### Count Vector Summary
+![count vector summary](https://github.com/AutomationKay/Data-Science-/assets/112325655/5d0f1b66-e5da-4188-9eb5-79c83a093742)
+
+### TFID Summary
+![tfid summary](https://github.com/AutomationKay/Data-Science-/assets/112325655/2c47e395-650e-418c-9558-2708ac8f59fc)
+
+
 
 ## **Results**
 The trained models are then tested on a separate test set to assess their performance on unseen data. The confusion matrix is used to visualize the performance of the models, providing a detailed breakdown of correct and incorrect predictions for each sentiment class.
