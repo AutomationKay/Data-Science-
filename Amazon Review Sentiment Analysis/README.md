@@ -16,8 +16,16 @@ The dataset used in this analysis contains a collection of customer reviews for 
 ## **Exploratory Data Analysis**
 Before diving into the modeling process, the cleaned data is explored through visualizations and statistical summaries. This step allows us to understand the distribution of sentiments in the dataset, identify any patterns or trends, and gain valuable insights that may influence the modeling approach.
 ![positive](https://github.com/AutomationKay/Data-Science-/assets/112325655/30b1e3d0-4c30-4321-a4ee-d68614e45fe6)
+![bar frequent positive](https://github.com/AutomationKay/Data-Science-/assets/112325655/cc968a00-bf83-4e61-a0c2-d070e803f709)
+
+
 ![neutral](https://github.com/AutomationKay/Data-Science-/assets/112325655/dac187d5-4936-47cd-a557-4a2565c04b54)
+![bar frequent neutral](https://github.com/AutomationKay/Data-Science-/assets/112325655/539c96af-a8bd-405b-acce-801eda3f979a)
+
+
 ![negative](https://github.com/AutomationKay/Data-Science-/assets/112325655/841f6f90-789f-4961-82b7-75dbaa94ca79)
+![bar frequent negative](https://github.com/AutomationKay/Data-Science-/assets/112325655/094d114f-d64e-41ff-b6f8-6d69ae34f114)
+
 
 
 ## **Vectorization and Feature Engineering**
@@ -28,10 +36,12 @@ To build predictive models, the text reviews are converted into numerical repres
 Multiple machine learning models are explored in this analysis, including Naive Bayes, Logistic Regression, and Support Vector Machines (SVM). Each model is trained on the training set and evaluated using the validation set. Performance metrics like accuracy, precision, recall, and F1 score are used to assess the models' effectiveness.
 
 ### Count Vector Summary
-![count vector summary](https://github.com/AutomationKay/Data-Science-/assets/112325655/5d0f1b66-e5da-4188-9eb5-79c83a093742)
+![Count-Vector Summary](https://github.com/AutomationKay/Data-Science-/assets/112325655/fd5c7b3b-1039-4503-aa61-453d783ea9f0)
+
 
 ### TFID Summary
-![tfid summary](https://github.com/AutomationKay/Data-Science-/assets/112325655/2c47e395-650e-418c-9558-2708ac8f59fc)
+![TFID summary](https://github.com/AutomationKay/Data-Science-/assets/112325655/1d38240d-248d-4b1f-83ee-31933400b37e)
+
 
 
 
